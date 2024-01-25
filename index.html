@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчет накладной</title>
+    <link rel="stylesheet" href="/static/additional/style.css">
+</head>
+<body> 
+    <div class="main">
+        <h1>Дополнительные услуги</h1>
+        <div class="container">
+            <label>
+                <input type="checkbox" class="custom-checkbox" id="service1"> Примерка на дому
+            </label>
+
+            <div class="service">
+                <label>
+                    <input type="checkbox" class="custom-checkbox" id="service2"> Уведомление о создании заказа в СДЭК
+                </label>
+                <p class="service_cost" id="service_2_p"></p>
+            </div>
+
+            <div class="service">
+                <label>
+                    <input type="checkbox" class="custom-checkbox" id="service3"> Скан документов
+                </label>
+                <p class="service_cost" id="service_3_p"></p>
+            </div>
+
+                <label>
+                    <input type="checkbox" class="custom-checkbox" id="service4"> Частичная доставка
+                </label>
+
+            <div class="service">
+                <label>
+                    <input type="checkbox" class="custom-checkbox" id="service5"> Воздушно-пузырчатая пленка
+                </label>
+                <p class="service_cost" id="service_5_p"></p>
+            </div>
+            <div class="menu" id="bubbleWrapSection" style="display: none;">
+                <p class="title" id="title_metre">Метры</p>
+
+                <label>
+                    <input type="text" id="bubbleWrapMeters" placeholder="Введите число">
+                </label>
+            </div>
+            
+            <div class="service">
+
+                <label>
+                    <input type="checkbox" class="custom-checkbox" id="service6"> Подъем на этаж
+                </label>
+                <p class="service_cost" id="service_6_p"></p>
+            </div>
+            <div class="menu" id="acsentToTheFloor" style="display: none;">
+                <p class="title" id="title_floor">Этаж</p>
+
+                <label>
+                    <input type="text" id="floorLift" placeholder="Введите этаж">
+                </label>
+                <label>
+                    <input type="radio" name="floorType" id="manual" value="manual"> Ручной
+                </label>
+                <label>
+                    <input type="radio" name="floorType" id="lift" value="lift"> Лифт
+                </label>
+            </div>
+            <p class="status" id="floor_status"></p>
+
+            
+
+            <div class="service">
+
+            <label>
+                <input type="checkbox" class="custom-checkbox" id="service7"> Коробка
+            </label>
+            <p class="service_cost" id="service_7_p"></p>
+
+
+            </div>
+            <div class="boxes" id="boxesContainer">
+                <p class="status" id="status_box"></p>
+            </div>
+            
+        </div>
+
+
+
+        <p class="cost" id="additional_cost"></p>
+        <p class="cost" id="totalcost">Стоимость доставки: 1000р.</p>
+        <button class="general" type="button" id="confirm">Принять</button>
+        <button class="general" type="button" id="back">Назад</button>
+    </div>
+    
+    <script src="/static/additional/main.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>  
+
+
+</body>
+</html>
