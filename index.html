@@ -42,7 +42,7 @@
                 <p class="title" id="title_metre">Метры</p>
 
                 <label>
-                    <input type="text" id="bubbleWrapMeters" placeholder="Введите число">
+                    <input class="inputed" type="text" id="bubbleWrapMeters" placeholder="Введите число">
                 </label>
             </div>
             
@@ -56,15 +56,19 @@
             <div class="menu" id="acsentToTheFloor" style="display: none;">
                 <p class="title" id="title_floor">Этаж</p>
 
-                <label>
-                    <input type="text" id="floorLift" placeholder="Введите этаж">
-                </label>
-                <label>
-                    <input type="radio" name="floorType" id="manual" value="manual"> Ручной
-                </label>
-                <label>
-                    <input type="radio" name="floorType" id="lift" value="lift"> Лифт
-                </label>
+                <div class="flex-row">
+                    <label>
+                        <input class="inputed" type="text" id="floorLift" placeholder="Введите этаж">
+                    </label>
+                    <div class="column-state" >
+                        <label>
+                            <input type="radio" name="floorType" id="manual" value="manual"> Ручной
+                        </label>
+                        <label>
+                            <input type="radio" name="floorType" id="lift" value="lift"> Лифт
+                        </label>
+                    </div>
+                </div>
             </div>
             <p class="status" id="floor_status"></p>
 

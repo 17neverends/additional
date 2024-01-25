@@ -5,7 +5,7 @@ let data = {
             "length": 10,
             "weight": 57,
             "width": 10,
-            "type": "дверь-склад"
+            "type": "дверь-дверь"
         }
     ]
 };
@@ -132,9 +132,6 @@ const cost_7 = document.getElementById('service_7_p');
 additionalCostElement.textContent = 'Доп. услуги не выбраны';
 
 
-
-
-
 function updateCost() {
     let additionalCost = 0;
     
@@ -143,13 +140,16 @@ function updateCost() {
         additionalCost += 10;
         cost_2.innerHTML = '10р.'
     } else {
-        cost_2.innerHTML = ''
+        cost_2.innerHTML = '';
 
     }
 
     if (checkboxService3.checked) {
         additionalCost += 50;
         cost_3.innerHTML = '50р.'
+
+    } else {
+        cost_3.innerHTML = '';
 
     }
 
@@ -158,6 +158,7 @@ function updateCost() {
     } else {
         document.getElementById('bubbleWrapSection').style.display = 'none';
         bubbleWrapMeters.value = '';
+        cost_5.innerText = '';
     }
 
     if (checkboxService5.checked && bubbleWrapMeters.value.trim() !== "") {
@@ -198,16 +199,18 @@ function updateCost() {
     
     
 
-    const packageType = data.packages[0].type.toLowerCase(); 
+    const packageType = data.packages[0].type.toLowerCase();
     const floorType = document.querySelector('input[name="floorType"]:checked');
     
     if (checkboxService6.checked && floorType && floorLift.value.trim() !== "") {
-        const floors = parseInt(floorLift.value.trim(), 10);
+        const floorsValue = floorLift.value.trim();
+        const floors = /^\d+$/.test(floorsValue) ? parseInt(floorsValue, 10) : 0;
+    
         let doorLocation = '';
-        
+    
         const packageParts = packageType.split("-");
         if (packageParts.includes('дверь')) {
-            if (packageParts[0].includes("дверь") && packageParts[1].includes("дверь")){
+            if (packageParts[0].includes("дверь") && packageParts[1].includes("дверь")) {
                 doorLocation = 'отправителя и получателя';
             } else if (packageParts[0].includes("дверь")) {
                 doorLocation = 'отправителя';
@@ -216,28 +219,28 @@ function updateCost() {
             }
         }
         let cost = 0;
-
-        if (packageType.includes('дверь')) { 
+    
+        if (packageType.includes('дверь')) {
             let mult = 1;
-            if (doorLocation === 'отправителя и получателя'){
+            if (doorLocation === 'отправителя и получателя') {
                 mult = 2;
             }
-
+    
             if (weight >= 30 && weight <= 50) {
-                additionalCost += 300 * mult;
+                cost += 300 * mult;
             } else if (weight > 50 && weight <= 75) {
-                additionalCost += 600 * mult;
+                cost += 600 * mult;
             } else if (weight > 75 && weight <= 100) {
                 cost += 1000 * mult;
             } else if (weight > 100 && weight <= 150) {
-                additionalCost += 1500 * mult;
+                cost += 1500 * mult;
             }
         }
     
         if (doorLocation) {
             status.style.display = 'block';
             status.style.visibility = 'visible';
-            status.innerText = `Дверь у: ${doorLocation}`;
+            status.innerText = `Дверь у ${doorLocation}`;
         } else {
             status.style.display = 'none';
         }
@@ -251,23 +254,23 @@ function updateCost() {
 
                 else if (floorType.value === "manual") {
                     if (weight >= 30 && weight <= 50) {
-                        cost = 70 * floors;
+                        cost += 70 * floors;
                     } else if (weight <= 100) {
-                        cost = 100 * floors;
+                        cost += 100 * floors;
                     } else if (weight <= 150) {
-                        cost = 130 * floors;
+                        cost += 130 * floors;
                     }else if (weight >= 150) {
-                        cost = 200 * floors;
+                        cost += 200 * floors;
                     }
                 } else {
                     if (weight >= 30 && weight <= 50) {
-                        cost = 70;
+                        cost += 70;
                     } else if (weight <= 100) {
-                        cost = 100;
+                        cost += 100;
                     } else if (weight <= 150) {
-                        cost = 130;
+                        cost += 130;
                     } else {
-                        cost = 1500;
+                        cost += 1500;
                     }
                 }
                 additionalCost += cost;
@@ -365,10 +368,8 @@ function showBoxOptions() {
         boxesContainer.style.display = 'grid';
     } else {
         boxesContainer.style.display = 'none';
-        additionalCost -= box_cost;
-        box_cost = 0;
-
         cost_7.innerText = '';
+        updateCost();
     }
 }
 
