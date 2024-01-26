@@ -29,8 +29,7 @@ body::-webkit-scrollbar {
     max-width: 400px;
     width: 100%;
     margin: auto;
-    height: 1500px;     
-    min-height: 100px;
+    height: 1050px;     
 }
 
 
@@ -116,7 +115,6 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     padding: 5px;
     text-align: center;
-    /* background-color: #30cc5f; */
 }
 
 .box_name {
@@ -210,7 +208,7 @@ body::-webkit-scrollbar {
 }
 
 .service_cost {
-    margin-top: 0px;
+    margin-top: 4px;
     font-weight: bold;
 }
 

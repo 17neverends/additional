@@ -131,7 +131,7 @@ const cost_7 = document.getElementById('service_7_p');
 const floorType = document.querySelector('input[name="floorType"]:checked');
 additionalCostElement.textContent = 'Доп. услуги не выбраны';
 let star = false;
-
+let height = 1050;
 let initialTotalCost = calculateInitialCost();
 let totalcost = initialTotalCost;
 function updateCost() {
@@ -155,7 +155,7 @@ function updateCost() {
     }
 
     if (checkboxService5.checked) {
-        document.getElementById('bubbleWrapSection').style.display = 'block';
+        document.getElementById('bubbleWrapSection').style.display = 'block';   
     } else {
         document.getElementById('bubbleWrapSection').style.display = 'none';
         bubbleWrapMeters.value = '';
@@ -187,6 +187,8 @@ function updateCost() {
     const weight = data.packages[0].weight;
 
     if (checkboxService6.checked) {
+        height += 100;
+        document.querySelector('.main').style.height = `${height}px`;
         if (weight <= 150) {
             acsentToTheFloor.style.display = 'block';
             status.style.display = 'none';
@@ -207,11 +209,16 @@ function updateCost() {
         floorLift.value = '';
         manualRadio.checked = false;
         liftRadio.checked = false;
+        height -= 100;
+        document.querySelector('.main').style.height = `${height}px`;
     }
 
     const floorType = document.querySelector('input[name="floorType"]:checked');
     let cost = 0;
     if (checkboxService6.checked && floorType && floorLift.value.trim() !== "") {
+        height += 100;
+        document.querySelector('.main').style.height = `${height}px`;
+
         const floorsValue = floorLift.value.trim();
     
         if (/^\d+$/.test(floorsValue)) {
@@ -295,6 +302,8 @@ function showBoxOptions() {
     boxesContainer.innerHTML = '';
 
     if (checkboxService7.checked) {
+        height += 150;
+        document.querySelector('.main').style.height = `${height}px`;
         for (const boxName in boxData) {
             const box = boxData[boxName];
 
@@ -353,6 +362,9 @@ function showBoxOptions() {
         boxesContainer.style.display = 'none';
         cost_7.innerText = '';
         updateCost();
+        height -=150;
+        document.querySelector('.main').style.height = `${height}px`;
+
     }
 }
 
