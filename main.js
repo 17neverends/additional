@@ -163,7 +163,7 @@ function updateCost() {
     }
 
     if (checkboxService5.checked && bubbleWrapMeters.value.trim() !== "") {
-
+        let metersValue = bubbleWrapMeters.value.trim();
         if (/^\d+$/.test(metersValue)) {
             const meters = parseInt(metersValue, 10);
     
