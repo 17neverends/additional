@@ -298,7 +298,7 @@ function showBoxOptions() {
     const boxesContainer = document.getElementById('boxesContainer');
     boxesContainer.innerHTML = '';
     if (checkboxService7.checked) {
-        height += 500;
+        height += 400;
         for (const boxName in boxData) {
             const box = boxData[boxName];
 
@@ -357,7 +357,7 @@ function showBoxOptions() {
         boxesContainer.style.display = 'none';
         cost_7.innerText = '';
         updateCost();
-        height -= 500;
+        height -= 400;
         
 
     }
