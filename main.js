@@ -163,8 +163,7 @@ function updateCost() {
     }
 
     if (checkboxService5.checked && bubbleWrapMeters.value.trim() !== "") {
-        const metersValue = bubbleWrapMeters.value.trim();
-    
+
         if (/^\d+$/.test(metersValue)) {
             const meters = parseInt(metersValue, 10);
     
@@ -178,6 +177,7 @@ function updateCost() {
         } else {
             cost_5.innerText = '';
             bubbleWrapMeters.value = "";
+
         }
     }
     
@@ -187,8 +187,6 @@ function updateCost() {
     const weight = data.packages[0].weight;
 
     if (checkboxService6.checked) {
-        height += 100;
-        document.querySelector('.main').style.height = `${height}px`;
         if (weight <= 150) {
             acsentToTheFloor.style.display = 'block';
             status.style.display = 'none';
@@ -209,15 +207,12 @@ function updateCost() {
         floorLift.value = '';
         manualRadio.checked = false;
         liftRadio.checked = false;
-        height -= 100;
-        document.querySelector('.main').style.height = `${height}px`;
     }
 
     const floorType = document.querySelector('input[name="floorType"]:checked');
     let cost = 0;
     if (checkboxService6.checked && floorType && floorLift.value.trim() !== "") {
-        height += 100;
-        document.querySelector('.main').style.height = `${height}px`;
+        
 
         const floorsValue = floorLift.value.trim();
     
@@ -291,6 +286,8 @@ function updateCost() {
     } else {
         additionalCostElement.textContent = 'Доп. услуги не выбраны';
     }
+    console.log(height);
+    document.querySelector('.main').style.height = `${height}px`;
 }
 const checkboxService7 = document.getElementById('service7');
 const boxesContainer = document.querySelector('.boxes');
@@ -300,10 +297,8 @@ checkboxService7.addEventListener('change', showBoxOptions);
 function showBoxOptions() {
     const boxesContainer = document.getElementById('boxesContainer');
     boxesContainer.innerHTML = '';
-
     if (checkboxService7.checked) {
-        height += 150;
-        document.querySelector('.main').style.height = `${height}px`;
+        height += 500;
         for (const boxName in boxData) {
             const box = boxData[boxName];
 
@@ -362,10 +357,13 @@ function showBoxOptions() {
         boxesContainer.style.display = 'none';
         cost_7.innerText = '';
         updateCost();
-        height -=150;
-        document.querySelector('.main').style.height = `${height}px`;
+        height -= 500;
+        
 
     }
+
+    document.querySelector('.main').style.height = `${height}px`;
+
 }
 
 
