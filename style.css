@@ -116,6 +116,7 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     padding: 5px;
     text-align: center;
+    /* background-color: #30cc5f; */
 }
 
 .box_name {
@@ -191,14 +192,16 @@ body::-webkit-scrollbar {
 
 #floor_status {
     visibility: hidden;
+    font-size: 17px;
 }
 
-.status {
-    margin-top: -20px;
+#status_for_info {
+    visibility: hidden;
     font-size: 17px;
     margin-left: 23px;
-    font-weight: bold;
+    margin-top: -25px;
 }
+
 
 .service {
     display: flex;
@@ -225,7 +228,7 @@ body::-webkit-scrollbar {
 }
 
 #title_floor {
-    margin-bottom: -20px;
+    margin-bottom: -15px;
 }
 
 input[type="checkbox"] {
@@ -278,7 +281,10 @@ input[type="radio"]::before {
     display: block;
     width: 10px; 
     height: 10px;
-    margin: 4px; 
+    margin: 20%; 
     border-radius: 50%; 
     background-color: white;
+}
+#service7 {
+    margin-top: 10px;
 }
