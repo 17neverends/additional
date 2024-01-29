@@ -239,21 +239,26 @@ input[type="checkbox"] {
     border-radius: 5px; 
     outline: none;
     cursor: pointer;
+    min-width: 20px;
+
 }
 
 input[type="checkbox"]:checked {
     background-color: #4caf50;
     border: 2px solid #4caf50;
+    min-width: 20px;
 }
 
 input[type="checkbox"]::before {
     content: '\2713';
     display: block;
     text-align: center;
-    line-height: 18px; 
+    line-height: 20px; 
     color: white;
-    font-size: 14px; 
+    font-size: 17px; 
     font-weight: bold;
+    min-width: 20px;
+
 }
 
 
